@@ -1,0 +1,133 @@
+/* 自定义下拉列表样式 */
+select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="gray" height="24" viewBox="0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 50%;
+    padding-right: 2rem;
+}
+
+/* 记录卡片样式 */
+.record-card {
+    border-left: 4px solid var(--primary);
+    transition: background 0.3s ease;
+}
+
+/* 图表容器样式 */
+.chart-container {
+    position: relative;
+    margin: auto;
+    height: 300px;
+    width: 100%;
+}
+
+/* 图表空数据提示 */
+.chart-empty {
+    text-align: center;
+    color: #6b7280;
+    padding: 20px;
+}
+
+/* 微交互效果 - 琉璃渐变交互样式 */
+button, select, input, textarea, .record-card, .mood-option, .delete-record, .chart-card, a {
+    transition: all 0.3s ease;
+}
+
+/* 主界面鼠标移入交互样式 - 琉璃渐变（柔和浅绿色） */
+button:hover, select:hover, input:hover, textarea:hover, .record-card:hover, .mood-option:hover, .delete-record:hover, .chart-card:hover, a:hover {
+    background: linear-gradient(90deg, #e0f2f1, #a5d6a7);
+    background-size: 200% 100%;
+    animation: flow 4s ease infinite;
+}
+
+/* 心情选择图标样式 */
+.mood-option {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    color: #9CA3AF;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.mood-option.selected {
+    color: var(--primary);
+    transform: scale(1.2);
+    border: 2px solid var(--primary);
+    background: none;
+    animation: none;
+}
+
+/* 深色模式下心情图标样式 */
+@media (prefers-color-scheme: dark) {
+    .mood-option {
+        color: #6B7280;
+    }
+    .mood-option:hover {
+        background: linear-gradient(90deg, #e0f2f180, #a5d6a780);
+    }
+    .mood-option.selected {
+        color: #4CAF50;
+        border-color: #4CAF50;
+    }
+}
+
+/* 导出按钮样式 */
+.export-btn {
+    background-color: var(--accent);
+    color: #333;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.export-btn:hover {
+    background: linear-gradient(90deg, #FFCA28, #FFD54F);
+    transform: translateY(-2px);
+}
+
+/* 导出模态框样式 */
+#export-modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+#export-modal.hidden {
+    display: none;
+}
+
+/* Logo动画 */
+.logo-animation {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+} 
+
+/* 页面标题和文言文样式 */
+header h1 {
+    font-family: 'Noto Serif SC', '楷体', KaiTi, serif;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+}
+
+#jinwen-text {
+    font-family: 'Noto Serif SC', '楷体', KaiTi, serif;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    font-size: 1.1em;
+}

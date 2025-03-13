@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>芝麻史记 - 加载中</title>
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 谷歌字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <!-- GSAP 动画库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js 用于图表 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js 时间轴适配器 -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <!-- Tippy.js 用于提示框 -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+	/* 头部背景样式 - 浅绿色琉璃渐变 */
+.header-bg {
+    background: linear-gradient(90deg, #e0f2f1, #a5d6a7);
+    background-size: 200% 100%;
+    animation: flow 4s ease infinite;
+}
+
+/* 深色模式下的头部背景 */
+@media (prefers-color-scheme: dark) {
+    .header-bg {
+        background: linear-gradient(90deg, #1A3C34, #263238);
+        background-size: 200% 100%;
+        animation: flow 4s ease infinite;
+    }
+}
+
+/* 标题艺术字体样式 */
+header h1 {
+    font-family: 'Ma Shan Zheng', serif;
+    font-weight: 400; /* Ma Shan Zheng字体本身较粗，无需额外加粗 */
+    letter-spacing: 2px; /* 增加字符间距，增强艺术感 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 添加轻微阴影，增强立体感 */
+}
+
+/* 深色模式下的标题样式 */
+@media (prefers-color-scheme: dark) {
+    header h1 {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 深色模式下阴影更明显 */
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div class="loading-screen" id="loading-screen" role="status" aria-live="polite" aria-label="页面正在加载">
+        <div class="emoji-rain"></div>
+        <div class="quote-container">
+            <h2 class="text-3xl mb-4" id="current-date"></h2>
+            <p class="text-xl mb-2 font-light" id="hitokoto-text">正在加载今日名言...</p>
+            <p class="text-sm opacity-80" id="hitokoto-source"></p>
+        </div>
+    </div>
+    
+    <!-- 在页面底部引入自定义JavaScript -->
+    <script src="js/global.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
+

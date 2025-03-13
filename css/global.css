@@ -1,0 +1,134 @@
+:root {
+    --primary-light: #e0f2f1;
+    --primary: #4CAF50;
+    --primary-dark: #00796b;
+    --accent: #FFCA28;
+    --background: #F1F8E9; /* 浅绿白背景 */
+    --text: #2E7D32; /* 深绿色文字 */
+}
+
+body {
+    font-family: 'Noto Serif SC', serif;
+    overflow-x: hidden;
+    background: var(--background);
+    color: var(--text);
+}
+
+/* 头部背景样式 - 浅绿色琉璃渐变 */
+.header-bg {
+    background: linear-gradient(90deg, #e0f2f1, #a5d6a7);
+    background-size: 200% 100%;
+    animation: flow 4s ease infinite;
+}
+
+/* 深色模式下的头部背景 */
+@media (prefers-color-scheme: dark) {
+    .header-bg {
+        background: linear-gradient(90deg, #1A3C34, #263238);
+        background-size: 200% 100%;
+        animation: flow 4s ease infinite;
+    }
+}
+
+/* 标题艺术字体样式 */
+header h1 {
+    font-family: 'Ma Shan Zheng', serif;
+    font-weight: 400; /* Ma Shan Zheng字体本身较粗，无需额外加粗 */
+    letter-spacing: 2px; /* 增加字符间距，增强艺术感 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 添加轻微阴影，增强立体感 */
+}
+
+/* 深色模式下的标题样式 */
+@media (prefers-color-scheme: dark) {
+    header h1 {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 深色模式下阴影更明显 */
+    }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1A3C34;
+        color: #C8E6C9;
+    }
+    .bg-light {
+        background-color: #263238;
+        color: #C8E6C9;
+    }
+    .text-dark {
+        color: #C8E6C9;
+    }
+    .border-light {
+        border-color: #4B5E4A;
+    }
+    .bg-white {
+        background-color: #263238;
+    }
+    .text-gray-700 {
+        color: #C8E6C9;
+    }
+    .border-gray-200 {
+        border-color: #4B5E4A;
+    }
+}
+
+/* 琉璃渐变动效 */
+@keyframes flow {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* 提示框样式遗留bug */
+.tippy-box {
+    background-color: #ffffff;
+    color: #333333;
+    border: 0px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    max-width: 300px !important;
+}
+
+.tippy-arrow {
+    color: #ffffff;
+}
+
+/* 提示框 */
+#toast {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* 加载动画样式 */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+    transition: opacity 0.5s ease-out;
+}
+
+/* 深色模式下琉璃渐变 */
+@media (prefers-color-scheme: dark) {
+    button:hover, select:hover, input:hover, textarea:hover, .record-card:hover, .mood-option:hover, .delete-record:hover, .chart-card:hover, a:hover {
+        background: linear-gradient(90deg, #e0f2f180, #a5d6a780);
+    }
+}
